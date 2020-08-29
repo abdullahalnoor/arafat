@@ -16,5 +16,9 @@ class Category extends Model
     protected $fillable = [
         'name', 'status'
     ];
+
+    // protected $timestamps = false;
+
+
     
 }

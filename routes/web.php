@@ -31,10 +31,21 @@ Route::get('/', function () {
     // $category->status = 0;
     // $category->update();
     
-    $category =  Category::find(1);
-    $category->delete();
+    // $category =  Category::find(1);
+    // $category->delete();
    
-    return $category;
+    // return $category;
 
     return view('welcome');
 });
+
+
+Route::get('/admin', function () {
+    
+
+    return view('backend.home.index');
+});
+
+Route::get('/admin/category/index','CategoryController@index')->name('admin.category.index');
+Route::get('/admin/category/create','CategoryController@create')->name('admin.category.create');
+Route::post('/admin/category/store','CategoryController@store')->name('admin.category.store');
