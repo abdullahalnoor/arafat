@@ -26,26 +26,17 @@
                         @csrf
                       <div class="form-group">
                         <label class="control-label">Name</label>
-                        <input class="form-control"  name="name" type="text" placeholder="Enter full name">
-                     
-                        @error('name')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                     
-                     
+                        <input class="form-control" name="name" type="text" placeholder="Enter full name">
                       </div>
                   
                       <div class="form-group">
                         <label for="exampleSelect1">Status</label>
                         <select name="status" class="form-control" id="exampleSelect1">
-                          <option value="" >Select One</option>
+                          <option >Select One</option>
                           <option value="1">Active</option>
                           <option value="0">Inactive</option>
                           
                         </select>
-                        @error('status')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
                       </div>
                       <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Create</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
                     

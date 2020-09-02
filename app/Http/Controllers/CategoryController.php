@@ -30,6 +30,11 @@ class CategoryController extends Controller
     //    return $request->all();
     // $_POST['name'];
 
+    $this->validate($request,[
+      'name' => 'required|min:5|max:255',
+      'status' => 'required',
+    ]);
+
     $category = new Category();
     $category->name = $request->name;
     $category->status = $request->status;
