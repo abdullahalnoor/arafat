@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use Session;
 
 class CategoryController extends Controller
 {
@@ -15,7 +16,8 @@ class CategoryController extends Controller
     // return $categories = Category::where('status',1)->get(); // filter by where 
     // return $categories = Category::get();
     // return $categories = Category::all();
-     $categories = Category::get();
+    //  $categories = Category::get();
+     $categories = Category::paginate(3);
     return view('backend.category.index',\get_defined_vars());
   }
 
@@ -32,5 +34,64 @@ class CategoryController extends Controller
     $category->name = $request->name;
     $category->status = $request->status;
     $category->save(); 
+
+    
+    Session::flash('success','Information Added Successfullly..');
+ 
+
+    return redirect()->route('admin.category.index');
    }
+
+
+   public function edit($id){
+    $page_title = 'Update Category';
+    $category =  Category::find($id);
+    // $category =  Category::where('id',$id)->first();
+    return view('backend.category.edit',\get_defined_vars());
+   }
+
+
+   public function update(Request $request){
+      //  return $request->all();
+    // $_POST['name'];
+
+    $category =  Category::find($request->category_id);
+    $category->name = $request->name;
+    $category->status = $request->status;
+    // $category->save(); 
+    $category->update(); 
+
+    
+    Session::flash('success','Information Updated Successfullly..');
+ 
+
+    return redirect()->route('admin.category.index');
+   }
+
+   public function delete($id){
+   
+    $category =  Category::find($id);
+    $category->delete();
+    Session::flash('success','Information Deleted Successfullly..');
+    return redirect()->route('admin.category.index');
+   }
+
+   public function changeStatus($id){
+   
+    $category =  Category::find($id);
+
+    if($category->status == 1){
+      $category->status = 0;
+    }else{
+      $category->status = 1;
+    }
+
+    $category->save();
+    
+    Session::flash('success','Information Status Change Successfullly..');
+    return back();
+
+   }
+
+   
 }

@@ -49,3 +49,9 @@ Route::get('/admin', function () {
 Route::get('/admin/category/index','CategoryController@index')->name('admin.category.index');
 Route::get('/admin/category/create','CategoryController@create')->name('admin.category.create');
 Route::post('/admin/category/store','CategoryController@store')->name('admin.category.store');
+Route::get('/admin/edit/{id}/','CategoryController@edit')->name('admin.category.edit');
+Route::post('/admin/category/update','CategoryController@update')->name('admin.category.update');
+Route::get('/admin/category/delete/{id}/','CategoryController@delete')->name('admin.category.delete');
+Route::get('/admin/category/status/{id}/','CategoryController@changeStatus')->name('admin.category.status');
+
+
