@@ -55,3 +55,6 @@ Route::get('/admin/category/delete/{id}/','CategoryController@delete')->name('ad
 Route::get('/admin/category/status/{id}/','CategoryController@changeStatus')->name('admin.category.status');
 
 
+Route::get('/admin/post/index','PostController@index')->name('admin.post.index');
+Route::get('/admin/post/create','PostController@create')->name('admin.post.create');
+Route::post('/admin/post/store','PostController@store')->name('admin.post.store');

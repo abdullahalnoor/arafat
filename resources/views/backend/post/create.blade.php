@@ -20,14 +20,56 @@
 
            
                 <div class="tile">
-                  <h3 class="tile-title">Category</h3>
+                  <h3 class="tile-title">Post</h3>
                   <div class="tile-body">
-                    <form action="{{route('admin.category.store')}}" method="POST">
+                    <form action="{{route('admin.post.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
+
+                        <div class="form-group">
+                          <label for="exampleSelect1">Category</label>
+                          <select name="category_id" class="form-control" id="exampleSelect1">
+                            <option value="">Select One</option>
+                            @foreach ($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                            
+                          </select>
+
+                          @error('category_id')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        </div>
+
+
+
+
                       <div class="form-group">
-                        <label class="control-label">Name</label>
-                        <input class="form-control" name="name" type="text" placeholder="Enter full name">
+                        <label class="control-label">Title</label>
+                        <input class="form-control" name="title" type="text" placeholder="Enter Title">
+                        @error('title')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                       </div>
+
+
+                      <div class="form-group">
+                        <label class="control-label">Description</label>
+                        <textarea class="form-control"  rows="15" name="description" type="text" placeholder="Enter Description"></textarea>
+                        @error('description')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                     
+                      </div>
+
+
+                      <div class="form-group">
+                        <label class="control-label">Image</label>
+                        <input class="form-control" name="image" type="file" >
+                        @error('image')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                      </div>
+                  
                   
                       <div class="form-group">
                         <label for="exampleSelect1">Status</label>
@@ -37,7 +79,13 @@
                           <option value="0">Inactive</option>
                           
                         </select>
+
+                        @error('status')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                       </div>
+
+
                       <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Create</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
                     
                       {{-- <input class="btn btn-primary" value="Create" type="submit"> --}}
