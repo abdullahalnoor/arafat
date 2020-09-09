@@ -32,8 +32,19 @@
       <div class="tile">
         <div class="tile-body">
 
+          
+
             <div class="tile">
-                <h3 class="tile-title">Manage Category </h3>
+                <h3 class="tile-title">Manage Category
+                  @php
+                      // dd(Session::get('session_array'))
+                      $arraydata = Session::get('session_array');
+                  @endphp
+                  {{   $arraydata['name'] }} <br>
+                  {{   $arraydata['address'] }} <br>
+                  {{   $arraydata['phone'] }} <br>
+                
+                </h3>
                 <table class="table table-striped">
                   <thead>
                     <tr>

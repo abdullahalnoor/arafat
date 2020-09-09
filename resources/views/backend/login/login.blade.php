@@ -20,13 +20,8 @@
 
            
                 <div class="tile">
-                  <h3 class="tile-title">   @php
-                    // dd(Session::get('session_array'))
-                    $arraydata = Session::get('session_array');
-                @endphp
-                {{   $arraydata['name'] }} <br>
-                {{   $arraydata['address'] }} <br>
-                {{   $arraydata['phone'] }} <br>
+                  <h3 class="tile-title"> Login 
+               
               </h3>
                   <div class="tile-body">
                     <form action="{{route('admin.category.store')}}" method="POST">

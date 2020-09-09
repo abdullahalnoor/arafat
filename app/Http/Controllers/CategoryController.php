@@ -18,6 +18,8 @@ class CategoryController extends Controller
     // return $categories = Category::all();
     //  $categories = Category::get();
      $categories = Category::paginate(3);
+
+     Session::forget('session_array');
     return view('backend.category.index',\get_defined_vars());
   }
 

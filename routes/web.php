@@ -58,3 +58,16 @@ Route::get('/admin/category/status/{id}/','CategoryController@changeStatus')->na
 Route::get('/admin/post/index','PostController@index')->name('admin.post.index');
 Route::get('/admin/post/create','PostController@create')->name('admin.post.create');
 Route::post('/admin/post/store','PostController@store')->name('admin.post.store');
+
+
+
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Auth::routes();
+
+
+Route::get('/admin/login','AdminController@login')->name('admin.login');
+Route::get('/admin/register','AdminController@register')->name('admin.login');

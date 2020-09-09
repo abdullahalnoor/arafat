@@ -39,6 +39,7 @@
                     <tr>
                       <th>#Sl</th>
                       <th> Title</th>
+                      <th> Category</th>
                       <th> Image</th>
                       <th> Status</th>
                       <th>Action</th>
@@ -51,6 +52,7 @@
                       <tr>
                         <td> {{$key + 1 }} </td>
                         <td>{{ $category->title }}</td>
+                        <td>{{ $category->category->name }}</td>
                         <td>
   
                           <img src="{{asset($category->image) }}" style="width: 80px;height:50px" alt="{{ $category->title }}">
