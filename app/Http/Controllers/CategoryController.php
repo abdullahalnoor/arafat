@@ -10,6 +10,24 @@ class CategoryController extends Controller
 {
 
 
+    public function __construct(){
+      $this->checkLogin();
+    }
+
+
+  private function checkLogin(){
+    $login = Session::get('admin_login');
+
+    if($login){
+      dd('ok');
+      return \redirect()->route('admin.category.index');
+    }else{
+      dd('!ok');
+      return \redirect()->route('admin.login');
+    }
+  }
+
+
 
   public function index(){
     $page_title = 'Manage Category';

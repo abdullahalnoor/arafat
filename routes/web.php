@@ -40,11 +40,11 @@ Route::get('/', function () {
 });
 
 
-Route::get('/admin', function () {
+// Route::get('/admin', function () {
     
 
-    return view('backend.home.index');
-});
+//     return view('backend.home.index');
+// });
 
 Route::get('/admin/category/index','CategoryController@index')->name('admin.category.index');
 Route::get('/admin/category/create','CategoryController@create')->name('admin.category.create');
@@ -69,5 +69,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 
-Route::get('/admin/login','AdminController@login')->name('admin.login');
-Route::get('/admin/register','AdminController@register')->name('admin.login');
+Route::get('/admin/login','AdminController@showLoginForm')->name('admin.login');
+Route::post('/admin/login','AdminController@login');
+
+Route::get('/admin/logout','AdminController@logout')->name('admin.logout');
+
+
+Route::get('/admin/register','AdminController@showRegisterForm')->name('admin.register');
+Route::post('/admin/register','AdminController@register');
