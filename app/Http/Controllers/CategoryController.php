@@ -11,7 +11,7 @@ class CategoryController extends Controller
 
 
     public function __construct(){
-      $this->checkLogin();
+      // $this->checkLogin();
     }
 
 

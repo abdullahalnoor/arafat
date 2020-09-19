@@ -13,9 +13,9 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
             <div class="tile">
-              <h3 class="tile-title">Login Form</h3>
+              <h3 class="tile-title">Admin Login Form</h3>
               <div class="tile-body">
-                <form action="{{route('admin.login')}}" method="POST">
+                <form action="{{route('login')}}" method="POST">
                     @csrf
                
                   <div class="form-group">

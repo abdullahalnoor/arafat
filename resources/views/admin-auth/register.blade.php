@@ -15,7 +15,7 @@
             <div class="tile">
               <h3 class="tile-title">Register Form</h3>
               <div class="tile-body">
-                <form action="{{route('admin.register')}}" method="POST">
+                <form action="{{route('register')}}" method="POST">
                     @csrf
                   <div class="form-group">
                     <label class="control-label">Name</label>
@@ -28,6 +28,15 @@
                     <label class="control-label">Email</label>
                     <input class="form-control" name="email" type="email" placeholder="Enter email address">
                     @error('email')
+                    <div class="form-control-feedback text-danger font-weight-bold">{{$message}}</div>
+                    @enderror
+                  </div>
+
+
+                  <div class="form-group">
+                    <label class="control-label">phone</label>
+                    <input class="form-control" name="phone" type="text" placeholder="Enter phone address">
+                    @error('phone')
                     <div class="form-control-feedback text-danger font-weight-bold">{{$message}}</div>
                     @enderror
                   </div>

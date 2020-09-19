@@ -12,13 +12,22 @@ class AdminController extends Controller
         return view('admin-auth.login');
     }
 
+    public function userName(){
+        return 'name';
+    }
+
+    public function validateLogin($request){
+        $this->validate($request,[
+            $this->userName() => 'required|string|email|max:255',
+            'password' => 'required|string|min:8',
+        ]);
+
+    }
+
     public function login(Request $request){
         // return $request->all();
 
-        $this->validate($request,[
-            'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:8',
-        ]);
+       $this->validateLogin($request);
 
         $admin = Admin::where('email',$request->email)->first();
 
@@ -40,6 +49,26 @@ class AdminController extends Controller
 
             Session::put('admin_login',$admin_login);
             return back();
+
+
+
+
+            $admin_login = [
+                'web' => [
+                    'name' =>  $admin->name,
+                    'email' =>  $admin->email,
+                    'login' => true,
+                ],
+                'admin' => [
+                    'name' =>  $admin->name,
+                    'email' =>  $admin->email,
+                    'login' => true,
+                ],
+            ];
+
+
+
+
         }
        
     return 'user not found';

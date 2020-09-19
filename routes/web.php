@@ -77,3 +77,6 @@ Route::get('/admin/logout','AdminController@logout')->name('admin.logout');
 
 Route::get('/admin/register','AdminController@showRegisterForm')->name('admin.register');
 Route::post('/admin/register','AdminController@register');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
